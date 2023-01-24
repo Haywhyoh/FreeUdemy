@@ -78,17 +78,14 @@
                     <h1 class=" font-normal my-10 text-center md:text-left text-5xl md:text-3xl lg:text-5xl">Grow And Imporove your Professional Skill with Kwikclass</h1>
                     <p class="hidden md:block text-gray text-xs lg:text-sm md:mb-4">Here at Nuga we assist you in improving your professional skills with our available courses and programs from anywhere around the world. 
                         You get to do all of this at your own pace and you also recieve a certificate at the end of every course you take</p>
-                    <form action="" class="hidden md:block md:border-2 md:border-orange md:flex md:h-10">
+                    <form action="" class="hidden  md:border-2 md:border-orange md:flex md:h-10">
                         <input type="text" placeholder="Course title or keyword" name="search" class="p-2 w-1/2">
                             <select name="categories" id="categories" class="w-1\/3 bg-white">
-                                <option value="volvo">UI/Ux</option>
-                                <option value="saab">Music</option>
-                                <option value="mercedes">Art</option>
-                                <option value="audi">Software Engineering</option>
-                                <option value="audi">Marketing</option>
-                                <option value="audi">Graphics Design</option>
-                                <option value="audi">Others</option>
-                            </select>
+                            {% for category in categories %}
+                                <option value={{ category }}>{{ category }}</option>
+                               
+                            {% endfor %}
+                        </select>
                         <button class="md:bg-orange md:text-white px-4 lg:bg-orange xl:px-10">Search</button>
                     </form>
                 </div>
@@ -139,13 +136,14 @@
         </div>
         <div class="flex flex-wrap justify-center md:gap-5 md:flex-row">
             {% for course in courses: %}
+                
             <div class= "my-4  w-60 border border-border_color">
-                <div><img src="../static/images/course_img.png" alt=""></div>
+                <div><img src={{ course.image_480x270 }}></div>
                 <div class="text-base p-3">{{course.title}}</div>
                 <div class=" px-3 grid pb-2 grid-cols-2 ">
                     <div class="flex gap-2">
-                        <h4>$165</h4>
-                        <h4 class="text-blur">$226</h4>
+                        <h4>{{course.price}}</h4>
+                        <h4 class="text-blur">{{course.price}}</h4>
                     </div>
                     <div class="flex ">
                         <p class="pr-2" >4.5</p>
@@ -157,8 +155,8 @@
                     </div>
                 </div>
                 <div class="grid grid-cols-2 gap-10  px-3">
-                    <div><img src=""> <p class="text-gray-200">James Clifford</p></div>
-                    <div><span>{{course.no_enrolled}}</span> enrolled</div>
+                    <div><img src=""> <p class="text-gray-200">{{ course["visible_instructors"][0].title }}</p></div>
+                    <div><span>{{course.id}}</span> enrolled</div>
                 </div>
             </div>
             {% endfor %}

@@ -2,7 +2,13 @@ from flask import Flask, render_template, url_for
 import requests
 
 app = Flask(__name__)
-courses = requests.get("http://127.0.0.1:5000/api/courses").json()
+headers = {
+  "Accept": "application/json, text/plain, */*",
+  "Authorization": "Basic TDgwQzhqdm1lcEtraVVrNDdDSjEzcklhMGVWMEdERDVoVXJOV0xIeTpOZEVRWUhNbVBhUVdXMm9DRE5hZ3JMTUxhWXRZZEdZcU1GU3lXNDRldUYxZUVmRmNidklnc3BqZDF1cUt1WTR1cDk1ME9YaERYZnM5Q3JNbjhwbENIeVNxVkVFSVZodGp6MlZVVXB6MFh6WXpBZkx0b3dOb2FYQ1A1SGtqQm9hUw==",
+  "Content-Type": "application/json"
+}
+response = requests.get("https://www.udemy.com/api-2.0/courses/?page=1&page_size=10", headers=headers).json()
+courses = response["results"]
 
 @app.route('/overview', strict_slashes=False)
 def dashboard():
@@ -10,17 +16,14 @@ def dashboard():
 
 @app.route('/courses', strict_slashes=False)
 def courses_route():
-    # courses = requests.get("http://127.0.0.1:5000/api/courses").json()
     return render_template('courses.html', courses=courses)
 
 @app.route('/', strict_slashes=False)
 @app.route('/home', strict_slashes=False)
-
-
 def home():
     new_list = []
     for course in courses:
-        if course['no_enrolled'] >= 90:
+        if course['id'] >= 50000:
             new_list.append(course)
     return render_template( 'index.html', courses=new_list)
 
