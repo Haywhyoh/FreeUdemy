@@ -6,18 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style_tail.css') }}">
     <title>kwikclass</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></head>
-<body class="font-body bg-white">
+<body class="">
     <header>
-        <nav class="bg-white shadow-lg ">
-            <div class="max-w-6xl mx-auto px-4 lg:container">
-				<div class="flex justify-between ">
-					<div class="flex space-x-7 lg:gap-32 xl:gap-44">
-                        <div class="max-w">
-                            <h1 class="text-text_black font-solway"><a href="http://127.0.0.1:5500/" class="flex items-center text-3xl py-4 px-2">Kwik <span class="text-orange"> Class</span></a></h1>
+        <nav class="">
+            <div class="">
+				<div class=" ">
+					<div class="">
+                        <div class="">
+                            <h1 class=""><a href="" class="flex items-center text-3xl py-4 px-2">Kwik <span class="text-orange"> Class</span></a></h1>
                         </div>
                         <ul class="hidden md:flex items-center space-x-1 lg:gap-6">
                             <li><a
@@ -78,17 +79,14 @@
                     <h1 class=" font-normal my-10 text-center md:text-left text-5xl md:text-3xl lg:text-5xl">Grow And Imporove your Professional Skill with Kwikclass</h1>
                     <p class="hidden md:block text-gray text-xs lg:text-sm md:mb-4">Here at Nuga we assist you in improving your professional skills with our available courses and programs from anywhere around the world. 
                         You get to do all of this at your own pace and you also recieve a certificate at the end of every course you take</p>
-                    <form action="" class="hidden md:block md:border-2 md:border-orange md:flex md:h-10">
+                    <form action="" class="hidden  md:border-2 md:border-orange md:flex md:h-10">
                         <input type="text" placeholder="Course title or keyword" name="search" class="p-2 w-1/2">
                             <select name="categories" id="categories" class="w-1\/3 bg-white">
-                                <option value="volvo">UI/Ux</option>
-                                <option value="saab">Music</option>
-                                <option value="mercedes">Art</option>
-                                <option value="audi">Software Engineering</option>
-                                <option value="audi">Marketing</option>
-                                <option value="audi">Graphics Design</option>
-                                <option value="audi">Others</option>
-                            </select>
+                            {% for category in categories %}
+                                <option value={{ category }}>{{ category }}</option>
+                               
+                            {% endfor %}
+                        </select>
                         <button class="md:bg-orange md:text-white px-4 lg:bg-orange xl:px-10">Search</button>
                     </form>
                 </div>
@@ -139,13 +137,14 @@
         </div>
         <div class="flex flex-wrap justify-center md:gap-5 md:flex-row">
             {% for course in courses: %}
+                
             <div class= "my-4  w-60 border border-border_color">
-                <div><img src="../static/images/course_img.png" alt=""></div>
+                <div><img src={{ course.image_480x270 }}></div>
                 <div class="text-base p-3">{{course.title}}</div>
                 <div class=" px-3 grid pb-2 grid-cols-2 ">
                     <div class="flex gap-2">
-                        <h4>$165</h4>
-                        <h4 class="text-blur">$226</h4>
+                        <h4>{{course.price}}</h4>
+                        <h4 class="text-blur">{{course.price}}</h4>
                     </div>
                     <div class="flex ">
                         <p class="pr-2" >4.5</p>
@@ -157,8 +156,8 @@
                     </div>
                 </div>
                 <div class="grid grid-cols-2 gap-10  px-3">
-                    <div><img src=""> <p class="text-gray-200">James Clifford</p></div>
-                    <div><span>{{course.no_enrolled}}</span> enrolled</div>
+                    <div><img src=""> <p class="text-gray-200">{{ course["visible_instructors"][0].title }}</p></div>
+                    <div><span>{{course.id}}</span> enrolled</div>
                 </div>
             </div>
             {% endfor %}
@@ -327,7 +326,7 @@
         <h2 class="text-gray md:my-5">To join the worldwide community</h2>
         <div class="border flex xs:gap-1 md:w-1/2 md:ml-44 md:gap-3 lg:ml-60 lg:gap-32 xl:gap-x-64 border-border_color">
             <input type="text"  class="p-2" placeholder="Enter your email" name="search">
-            <button class="text-white bg-orange px-4 xs:px-5 py-2 lg:ml-3">Send Now</button>
+            <button class="">Send Now</button>
         </div>
     </section>
 
@@ -335,18 +334,18 @@
     
     <script src="{{url_for('static', filename='index.js')}}"></script>
 </body>
-<footer class="container my-10">
-    <div class="text-center md:flex md:gap-36">
+<footer class="">
+    <div class="">
         <div>
-            <h1 class="text-3xl md:text-center md:mt-4">Kwik<span class="text-orange">Class</span></h1>
+            <h1 class="">Kwik<span class="">Class</span></h1>
         </div>
-        <div class="list-none my-5 md:flex md:gap-10">
+        <div class="">
             <li>Home</li>
             <li>Courses</li>
             <li>Blog</li>
             <li>Instructors</li>
         </div>
     </div>
-    <div><p class="md:text-center">Copyright © 2022 Adedayo Ayomide. All Rights Reseved.</p></div>
+    <div><p class="">Copyright © 2022 Adedayo Ayomide. All Rights Reseved.</p></div>
 </footer>
 </html>
