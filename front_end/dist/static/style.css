@@ -1,15 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Solway:wght@300;400&display=swap');
 
-.w-md-25{
-    width: 50%;
+:root{
+    --text_black: #1A1919;
+    --text_grey: rgba(26, 25, 25, 0.6);
+    --text_orange:#FF5202;
+    --body_background:rgb(255, 255, 255);
+    --background_orange:rgba(255, 82, 2, 0.1);
+
+    --biggest_font: 3.5rem;
+    --big_font: 3rem;
+    --small_text_size: 16px;
+    --big_text_size: 18px;
 }
-@media only screen and (min-width: 768px) {
-    
+
+body{
+    font-family: Solway;
+    box-sizing: border-box;
+    padding: 0 .5rem;
+    background-color: var(--body_background);
 }
+
+header{
+    background-color: white;
+}
+
+h1{
+    font-size: var(--big_font);
+}
+
+p{
+    font-size: var(--small_text_size);
+    color: var(--text_grey);
+    font-weight: 300;
+}
+
+button{
+    background-color: var(--text_orange);
+    color: white;
+    font-size: var(--small_text_size);
+    padding: 8px 16px;
+    border-radius: 8px;
+
+}
+
+li{
+    list-style-type: none;
+}
+
+p{
+    font-family: 'Solway';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+/* or 25px */
+letter-spacing: -0.3px;
+
+color: rgba(26, 25, 25, 0.6);
+}
+
+.email {
+    width: 11rem;
+}
+.orange_text {
+    color: var(--text_orange);
+}
+
+.mt-6{
+    margin-top: 0rem;
+}
+@media only screen and (min-width: 412px) {
+    .email {
+        width: 14.3rem;
+    }
+}
+
 
 @media only screen and (min-width: 992px) {
     
 }
 
 @media only screen and (max-width: 768px) {
-   
+    .mt-6{
+        margin-top: 6rem;
+    }
 }
