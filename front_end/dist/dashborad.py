@@ -15,7 +15,7 @@ with open("/Users/macbook/Documents/Personal_Projects/Web-Dev /FreeUdemy/data.js
     response = json.load(file)
 
 courses = response["results"]
-print (courses)
+
 @app.route('/overview', strict_slashes=False)
 def dashboard():
     return render_template('overview.html')
@@ -27,10 +27,7 @@ def courses_route():
 @app.route('/', strict_slashes=False)
 @app.route('/home', strict_slashes=False)
 def home():
-    new_list = []
-    for course in courses:
-        if course['id'] >= 50000:
-            new_list.append(course)
+    new_list = courses[:6]
     return render_template( 'index.html', courses=new_list)
 
 @app.route('/login',  strict_slashes=False )
