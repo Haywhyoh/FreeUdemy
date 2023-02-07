@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="../static/style.css">    <title>FreeUdemy</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 <body class="">
-    <header class="container position-fixed " style="box-shadow: 0px 4px 30px rgba(38, 37, 67, 0.1); z-index: 1000;">
-        <nav class="navbar navbar-expand-lg nav_style">
-            <div class="container-fluid">
+    <header class="container position-fixed w-100" style="box-shadow: 0px 4px 30px rgba(38, 37, 67, 0.1); z-index: 1000;">
+        <nav class="navbar navbar-expand-lg nav_style w-100">
+            <div class="container">
                 <a class="navbar-brand" href="#"><span class='orange_text'>Free</span> Udemy</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,7 +47,7 @@
                     <form action="" class="border p-1 rounded-3 d-flex align-items-center">
                         <i class="ri-search-2-line pe-2 orange_text"></i>
                         <input type="text" placeholder="Search course" class="p-1 border border-0 w-75">
-                            <select name="categories" id="" class="d-none d-sm-block">
+                            <select name="categories" id="" class="d-none d-lg-block">
                             {% for category in categories %}
                                 <option value={{ category }} class="">{{ category }}</option>
                                
@@ -105,7 +105,7 @@
         </div>
         <div class="d-flex flex-column justify-content-center mx-auto w-100 flex-md-row flex-md-wrap row-cols-md-6">
             {% for course in courses: %}
-            <div class= "card my-3 mx-auto col" style="width: 18rem;">
+            <div class= "card my-3 mx-auto mx-md-2 col" style="width: 18rem;">
                 <img class="card-img-top" src={{ course.image_480x270 }}>
                 <div class="h4 p-3">{{course.title}}</div>
                 <div class="card-body py-0">
@@ -139,14 +139,14 @@
 <!--===============================HOW IT WORKS=======================================-->
     <section class="container d-md-flex row-cols-md-2">
         <h2 class="display-2 text-center d-md-none">How It Works</h2>
-        <div class="container position-relative col-md" style="width: 300px;">
+        <div class="container position-relative col-md mt-md-5" style="width: 300px;">
             <img src="../static/images/work_bg.svg" class=" position-absolute w-75" alt="">
             <img src="../static/images/work_man.svg" class="position-absolute w-75" alt="">
         </div>
 
-        <div class="col-md" style="margin-top: 20rem;">
+        <div class="col-md mt-md-0" style="margin-top: 20rem;">
             <h1 class="d-none d-md-block">How It Works</h1>
-            <div class>
+            <div>
                 <div class="my-2 text-center d-flex gap-5 align-items-center">
                     <div class="p-3" style="border:1px solid black; border-radius: 100%;">1</div> 
                     <div class="my-4">Step One</div>
@@ -154,12 +154,14 @@
                 <p class="text-justify text-xs text-gray">First you search for your desired course, there are a lot of categories and also filters in which you can use to search for your desired course.
                      After finding your desired course you then sign up or login</p>
             </div>
-            <div class="my-2 text-center d-flex gap-5 align-items-center">
-                <div class="p-3" style="border:1px solid black; border-radius: 100%;">2</div> 
-                <div class="my-4">Step One</div>
-            </div>
-                <p class="text-justify text-xs text-gray" >Start taking your lectures by watching your tutorial videos, reading your course documents and also taking quizzes and assignments.
-                     Once you are done you are awarded a certificate </p>
+            <div>
+                <div class="my-2 text-center d-flex gap-5 align-items-center">
+                    <div class="p-3" style="border:1px solid black; border-radius: 100%;">2</div> 
+                    <div class="my-4">Step Two</div>
+                </div>
+                    <p class="text-justify text-xs text-gray" >Start taking your lectures by watching your tutorial videos, reading your course documents and also taking quizzes and assignments.
+                         Once you are done you are awarded a certificate 
+                    </p>
             </div>
             <div>
                 <div class="my-2 text-center d-flex gap-5 align-items-center">
@@ -177,36 +179,36 @@
         <p class="text-gray text-justify my-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
             Velit, massa leo massa porta duis lobortis convallis euismod. 
             Sit felis, quis ante tincidunt quisque est, dui faucibus. Diam eget.</p>
-        <div class="d-flex gap-2 flex-wrap justify-content">
-            <div class="p-3 border text-center border-border_color">
+        <div class="d-flex gap-2 gap-md-3 justify-content row mx-md-auto row-cols-md-4">
+            <div class="p-3 border text-center border-border_color col">
                 <i class="fa fa-music "></i>
                 <h3 class="text-l">Music</h3>
             </div>
-            <div class="p-3 border rounded-md hover:border-orange text-center border-border_color w-24 md:p-5">
+            <div class="p-2 border rounded-md hover:border-orange text-center border-border_color w-24 md:p-5 col">
                 <i class="fa fa-eye"></i>
                 <h3 class="text-l">Design</h3>
             </div>
-            <div class="p-3 border text-center rounded-md hover:border-orange border-border_color w-24">
+            <div class="p-2 border text-center rounded-md hover:border-orange border-border_color w-24 col">
                 <i class="fa fa-eye"></i>
                 <h3 class="text-l">UI/UX</h3>
             </div>
-            <div class="p-3 border text-center rounded-md hover:border-orange border-border_color w-24">
+            <div class="p-2 border text-center rounded-md hover:border-orange border-border_color w-24 col">
                 <i class="fa fa-eye"></i>
                 <h3 class="text-l">Coding</h3>
             </div>
-            <div class="p-3 border text-center rounded-md hover:border-orange border-border_color w-24">
+            <div class="p-2 border text-center rounded-md hover:border-orange border-border_color w-24 col">
                 <i class="fa fa-eye"></i>
                 <h3 class="text-l">Business</h3>
             </div>
-            <div class="p-3 border text-center rounded-md hover:border-orange border-border_color w-24">
+            <div class="p-2 border text-center rounded-md hover:border-orange border-border_color w-24 col">
                 <i class="fa fa-eye"></i>
                 <h3 class="text-l">Graphics</h3>
             </div>
-            <div class="p-3 border text-center rounded-md hover:border-orange border-border_color w-24">
+            <div class="p-2 border text-center rounded-md hover:border-orange border-border_color w-24 col">
                 <i class="fa fa-eye"></i>
                 <h3 class="text-l">Ecommerce</h3>
             </div>
-            <div class="p-3 border text-center rounded-md hover:border-orange border-border_color w-24">
+            <div class="p-2 border text-center rounded-md hover:border-orange border-border_color w-24 col">
                 <i class="fa fa-eye"></i>
                 <h3 class="text-l">Writing</h3>
             </div>
@@ -271,7 +273,7 @@
         <h1 class="text-4xl text-center">Our latest blog</h1>
         <div class="my-10 d-flex justify-content-center flex-wrap mx-auto w-100">
             {% for i in range(3) %}
-            <div class="card my-3" style="width: 16rem;">
+            <div class="card my-3 mx-md-3" style="width: 16rem;">
                 <img src="../static/images/blog.png" alt="" class="card-img">
                 <div class="card-body ">
                     <p class="mt-1">ARTICLE</p>
@@ -287,9 +289,9 @@
     <section class="container my-4 text-center">
         <h1 class="display-3">Get Our Newsletter</h1>
         <p class="fs-6">To join the worldwide community</p>
-        <div class="border d-flex">
-            <input type="text"  class="p-1 border border-0 me-1 email" placeholder="Enter your email" name="search">
-            <button class="ms-2">Send Now</button>
+        <div class="border d-flex email">
+            <input type="text"  class="p-1 border border-0 " placeholder="Enter your email" name="search">
+            <button class="">Send Now</button>
         </div>
     </section>
 
@@ -298,18 +300,19 @@
     <script src="{{url_for('static', filename='index.js')}}"></script>
 </body>
 <footer class="">
-    <div class="">
+    <div class="d-md-flex gap-5 align-items-md-center mx-auto justify-content-sm-center">
         <div>
             <h1 class="text-center">Free<span class="orange_text">Udemy</span></h1>
         </div>
-        <div class="text-center d-md-flex">
+        <div class="text-center d-md-flex gap-2">
             <li>Home</li>
             <li>Courses</li>
             <li>Blog</li>
             <li>Instructors</li>
         </div>
+        <div><p class="mb-md-0">Copyright © 2022 Adedayo Ayomide. All Rights Reseved.</p></div>
     </div>
-    <div><p class="">Copyright © 2022 Adedayo Ayomide. All Rights Reseved.</p></div>
+    
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

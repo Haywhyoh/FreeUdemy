@@ -51,7 +51,7 @@ p{
     font-family: 'Solway';
     font-style: normal;
     font-weight: 300;
-    font-size: 12px;
+    font-size: 16px;
 /* or 25px */
 letter-spacing: -0.3px;
 
@@ -59,7 +59,7 @@ color: rgba(26, 25, 25, 0.6);
 }
 
 .email {
-    width: 11rem;
+    width: 18rem;
 }
 .orange_text {
     color: var(--text_orange);
@@ -70,13 +70,15 @@ color: rgba(26, 25, 25, 0.6);
 }
 @media only screen and (min-width: 412px) {
     .email {
-        width: 14.3rem;
+        width: 15.4rem;
     }
 }
 
 
-@media only screen and (min-width: 992px) {
-    
+@media only screen and (min-width: 912px) {
+    .mt-6{
+        margin-top: 7rem;
+    }
 }
 
 @media only screen and (max-width: 768px) {
