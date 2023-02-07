@@ -18,6 +18,7 @@ body{
     box-sizing: border-box;
     padding: 0 .5rem;
     background-color: var(--body_background);
+    
 }
 
 header{
@@ -58,31 +59,62 @@ letter-spacing: -0.3px;
 color: rgba(26, 25, 25, 0.6);
 }
 
-.email {
-    width: 18rem;
+a{
+    text-decoration: none;
+    color: var(--text_black);
 }
+
+.email {
+    width: 20rem;
+}
+
 .orange_text {
     color: var(--text_orange);
 }
 
 .mt-6{
-    margin-top: 0rem;
-}
-@media only screen and (min-width: 412px) {
-    .email {
-        width: 15.4rem;
-    }
+    margin-top: 6rem;
 }
 
+@media only screen and (min-width: 412px) {
+    .email {
+        width: 20 rem;
+    }
+}
 
 @media only screen and (min-width: 912px) {
     .mt-6{
         margin-top: 7rem;
     }
+
+    body{
+        margin: 0 3rem;
+    }
+
+    .email {
+        width: 22 rem;
+    }
+
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 768px) {
     .mt-6{
-        margin-top: 6rem;
+        margin-top: 3rem;
     }
 }
+
+@media only screen and (min-width: 1300px) {
+    .mt-6{
+        margin-top: 8rem;
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+   
+}
+
+@media only screen and (min-width: 2000px) {
+   
+}
+
+

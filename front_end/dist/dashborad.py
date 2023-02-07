@@ -11,6 +11,10 @@ app = Flask(__name__)
 # response = requests.get("https://www.udemy.com/api-2.0/courses/?page=1&page_size=10", headers=headers).json()
 # courses = response["results"]
 
+categories = ["Business", "Design", "Development", "Finance & Accounting", "Health & Fitness", "IT & Software", "Lifestyle", 
+                "Marketing", "Music", "Office", "Productivity", "Personal Development",
+                "Photography & Video", "Teaching & Academics"]
+
 with open("/Users/macbook/Documents/Personal_Projects/Web-Dev /FreeUdemy/data.json") as file:
     response = json.load(file)
 
@@ -28,7 +32,7 @@ def courses_route():
 @app.route('/home', strict_slashes=False)
 def home():
     new_list = courses[:6]
-    return render_template( 'index.html', courses=new_list)
+    return render_template( 'index.html', courses=new_list,  categories = categories)
 
 @app.route('/login',  strict_slashes=False )
 def login():

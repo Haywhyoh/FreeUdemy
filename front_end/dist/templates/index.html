@@ -10,60 +10,56 @@
     <link rel="stylesheet" href="../static/style.css">    <title>FreeUdemy</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 <body class="">
-    <header class="container position-fixed w-100" style="box-shadow: 0px 4px 30px rgba(38, 37, 67, 0.1); z-index: 1000;">
-        <nav class="navbar navbar-expand-lg nav_style w-100">
-            <div class="container">
-                <a class="navbar-brand" href="#"><span class='orange_text'>Free</span> Udemy</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="ri-menu-line menu_icon"></i></span>
+    <header class=" container-fluid position-fixed" style="box-shadow: 0px 4px 30px rgba(38, 37, 67, 0.1); z-index: 1000; width: 100vw;">
+        <nav class="container navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid d-lg-flex justify-content-between">
+                <a href="#" class="h1">
+                   FreeUdemy
+                </a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto ">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Course</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Blog</a>
-                        </li>
-
-                    </ul>
+                <div class="container-fluid collapse navbar-collapse ms-lg-5" id="navbarCollapse">
+                    <div class="navbar-nav">
+                        <a href="#" class="nav-item nav-link active">Home</a>
+                        <a href="#" class="nav-item nav-link">Courses</a>
+                        <a href="#" class="nav-item nav-link">Blog</a>
+                    </div>
+                    <div class="navbar-nav ms-auto">
+                        <a href="#" class="nav-item nav-link"><i class="ri-user-fill orange_text"> Login</i></a>
+                    </div>
                 </div>
             </div>
         </nav>
     </header>
 
 <!--==============================HOME========================================-->
-    <section class="container" style="padding-top: 6rem;">
-        <div class="container-md">
-            <div class="row-cols-sm-1 row-cols-md-2 d-md-flex" >
-                <div class="col">
+    <section class="mx-lg-auto mb-xxl-5" style="padding-top: 6rem;">
+        <div class="container mx-auto px-lg-5 my-lg-5 added">
+            <div class="row-cols-sm-1 row-cols-md-2 d-md-flex justify-content-lg-center mx-auto" >
+                <div class="col mt-10">
                     <h1 class="">Learn A New Skill with FreeUdemy</h1>
                     <p class="">Here at FreeUdemy we assist you in improving your professional skills with free available courses and programs  on Udemy.
                         You get to do all of this at your own pace and you also recieve a certificate at the end of every course you take</p>
                     <form action="" class="border p-1 rounded-3 d-flex align-items-center">
                         <i class="ri-search-2-line pe-2 orange_text"></i>
                         <input type="text" placeholder="Search course" class="p-1 border border-0 w-75">
-                            <select name="categories" id="" class="d-none d-lg-block">
+                            <select name="categories" id="" class="d-none d-lg-block p-2 border border-0">
                             {% for category in categories %}
-                                <option value={{ category }} class="">{{ category }}</option>
-                               
+                                <option value=category class="">{{ category }}</option>
                             {% endfor %}
                         </select>
                         <button class="">Search</button>
                     </form>
                 </div>
                    
-                <div class="mx-auto mt-4 px-4 position-relative col mt-md-0">
+                <div class="container mt-4 px-4 ps-xl-5 position-relative col ms-xl-5 mt-md-0">
                     <img src="../static/images/orange_bg_5.svg" alt="" class="position-absolute d-block  ms-2 " style="width: 18rem;">
-                    <img src="../static/images/orange_bg_4.svg" alt="" class="position-absolute d-block  ms-3" style="width: 18rem;">
-                    <img src="../static/images/orange_bg_3.svg" alt="" class="position-absolute d-block  ms-4" style="width: 18rem;">
-                    <img src="../static/images/orange_bg_2.svg" alt="" class="position-absolute d-block  ms-4" style="width: 18rem;">
-                    <img src="../static/images/orange_bg.svg" alt="" class="position-absolute d-block  ms-2" style="width: 18rem;">
-                    <img src="../static/images/home_img.png" alt="" class="position-absolute d-block" style="width: 18rem;">
+                    <img src="../static/images/orange_bg_4.svg" alt="" class="position-absolute d-block  ms-3 " style="width: 18rem;">
+                    <img src="../static/images/orange_bg_3.svg" alt="" class="position-absolute d-block  ms-4 " style="width: 18rem;">
+                    <img src="../static/images/orange_bg_2.svg" alt="" class="position-absolute d-block  ms-4 " style="width: 18rem;">
+                    <img src="../static/images/orange_bg.svg" alt="" class="position-absolute d-block  ms-2 " style="width: 18rem;">
+                    <img src="../static/images/home_img.png" alt="" class="position-absolute d-block " style="width: 18rem;">
                 </div>
             </div>
        
@@ -91,9 +87,9 @@
     </div>
 <!--===============================POPULAR=======================================-->
     <section class="container-fluid my-5">
-        <div class="text-center "><h1 class="display-2">Most <span class="orange_text"> Popular</span> Courses</h1></div>
+        <div class="text-center my-lg-5"><h1 class="display-2">Most <span class="orange_text"> Popular</span> Courses</h1></div>
         <div class="">
-            <ul class="d-none d-lg-flex ">
+            <ul class="text-center mx-auto justify-content-center my-5 d-none d-lg-flex gap-5">
                 <li>All Categories</li>
                 <li>UI/UX design</li>
                 <li>Graphic Design</li>
@@ -103,7 +99,7 @@
                 <i>icon</i>
             </ul>
         </div>
-        <div class="d-flex flex-column justify-content-center mx-auto w-100 flex-md-row flex-md-wrap row-cols-md-6">
+        <div class="row-cols-2 d-flex flex-wrap justify-content-center mx-auto row-cols-md-2 row-cols-lg-5">
             {% for course in courses: %}
             <div class= "card my-3 mx-auto mx-md-2 col" style="width: 18rem;">
                 <img class="card-img-top" src={{ course.image_480x270 }}>
@@ -137,11 +133,11 @@
     </section>
 
 <!--===============================HOW IT WORKS=======================================-->
-    <section class="container d-md-flex row-cols-md-2">
+    <section class="container d-md-flex row-cols-md-2 my-lg-5">
         <h2 class="display-2 text-center d-md-none">How It Works</h2>
         <div class="container position-relative col-md mt-md-5" style="width: 300px;">
-            <img src="../static/images/work_bg.svg" class=" position-absolute w-75" alt="">
-            <img src="../static/images/work_man.svg" class="position-absolute w-75" alt="">
+            <img src="../static/images/work_bg.svg" class=" position-absolute w-100" alt="">
+            <img src="../static/images/work_man.svg" class="position-absolute w-100" alt="">
         </div>
 
         <div class="col-md mt-md-0" style="margin-top: 20rem;">
@@ -179,7 +175,7 @@
         <p class="text-gray text-justify my-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
             Velit, massa leo massa porta duis lobortis convallis euismod. 
             Sit felis, quis ante tincidunt quisque est, dui faucibus. Diam eget.</p>
-        <div class="d-flex gap-2 gap-md-3 justify-content row mx-md-auto row-cols-md-4">
+        <div class="d-flex gap-2 gap-md-3 justify-content-center row mx-md-auto row-cols-md-4">
             <div class="p-3 border text-center border-border_color col">
                 <i class="fa fa-music "></i>
                 <h3 class="text-l">Music</h3>
@@ -221,12 +217,12 @@
     <section class="p-4" style="background-color: #262543;">
         <div class="">Trusted by</div>
         <div class="d-flex container gap-4 justify-content-center flex-wrap">
-            <div><img src="../static/images/icon_1.svg" class="" alt=""></div>
-            <div><img src="../static/images/icon_2.svg" class="" alt=""></div>
-            <div><img src="../static/images/icon_3.svg" class="" alt=""></div>
-            <div><img src="../static/images/icon_4.svg" class="" alt=""></div>
-            <div><img src="../static/images/icon_5.svg" class="" alt=""></div>
-            <div><img src="../static/images/icon_6.svg" class="" alt=""></div>
+            <div><img src="../static/images/icon_1.svg" class="mx-xl-4" alt=""></div>
+            <div><img src="../static/images/icon_2.svg" class="mx-xl-4" alt=""></div>
+            <div><img src="../static/images/icon_3.svg" class="mx-xl-4" alt=""></div>
+            <div><img src="../static/images/icon_4.svg" class="mx-xl-4" alt=""></div>
+            <div><img src="../static/images/icon_5.svg" class="mx-xl-4" alt=""></div>
+            <div><img src="../static/images/icon_6.svg" class="mx-xl-4" alt=""></div>
         </div>
     </section>
 
@@ -269,9 +265,9 @@
     </section>
 
 <!--===============================BLOG_POSTS=======================================-->
-    <section class="blog_post container">
-        <h1 class="text-4xl text-center">Our latest blog</h1>
-        <div class="my-10 d-flex justify-content-center flex-wrap mx-auto w-100">
+    <section class=" container">
+        <h1 class="text-center">Our latest blog</h1>
+        <div class="d-flex justify-content-center flex-wrap mx-auto w-100">
             {% for i in range(3) %}
             <div class="card my-3 mx-md-3" style="width: 16rem;">
                 <img src="../static/images/blog.png" alt="" class="card-img">
@@ -289,8 +285,8 @@
     <section class="container my-4 text-center">
         <h1 class="display-3">Get Our Newsletter</h1>
         <p class="fs-6">To join the worldwide community</p>
-        <div class="border d-flex email">
-            <input type="text"  class="p-1 border border-0 " placeholder="Enter your email" name="search">
+        <div class="border d-flex email justify-content-between mx-auto">
+            <input type="text"  class="p-1 border border-0 w-50" placeholder="Enter your email" name="search">
             <button class="">Send Now</button>
         </div>
     </section>
@@ -299,7 +295,7 @@
     
     <script src="{{url_for('static', filename='index.js')}}"></script>
 </body>
-<footer class="">
+<footer class="container-fluid">
     <div class="d-md-flex gap-5 align-items-md-center mx-auto justify-content-sm-center">
         <div>
             <h1 class="text-center">Free<span class="orange_text">Udemy</span></h1>
