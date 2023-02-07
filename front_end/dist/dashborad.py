@@ -20,13 +20,10 @@ with open("/Users/macbook/Documents/Personal_Projects/Web-Dev /FreeUdemy/data.js
 
 courses = response["results"]
 
-@app.route('/overview', strict_slashes=False)
-def dashboard():
-    return render_template('overview.html')
 
 @app.route('/courses', strict_slashes=False)
 def courses_route():
-    return render_template('courses.html', courses=courses)
+    return render_template('courses.html', courses=courses,  categories = categories)
 
 @app.route('/', strict_slashes=False)
 @app.route('/home', strict_slashes=False)
@@ -42,13 +39,6 @@ def login():
 def signup():
     return render_template('signup.html')
 
-@app.route('/course_page', strict_slashes=False)
-def course_page():
-    return render_template('course_page.html', courses=courses)
-
-@app.route('/checkout', strict_slashes=False)
-def cart_page():
-    return render_template('checkout.html')
 
 if __name__ == "__main__":
     app.run(port=5500, debug=True)
