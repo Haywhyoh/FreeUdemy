@@ -41,23 +41,46 @@ class DBStorage:
     
         return (collection)
 
-    def get_by_title(self, query, collection):
-        myquery = { "title" : {"$regex": "/\b{}\b/i".format(query)}}
-        course_list = collection.find(myquery)
+    def get_data(self,data):
+        data['_id'] = str(data['_id'])
+        return data
+
+    def all(self, collection):
+        data_list = collection.find({})
+        temp = [self.get_data(i) for i in data_list]
+        return temp
+
+    def get_by_title(self, title, collection):
+        myquery = { "title" : {"$regex": "/\b{}\b/i".format(title)}}
+        data_list = collection.find(myquery)
+        course_list = [self.get_data(i) for i in data_list]
+        return course_list
+    
+    def get_by_id(self, id, collection):
+        myquery = { "id" : id}
+        data_list = collection.find(myquery)
+        course_list = [self.get_data(i) for i in data_list]
         return course_list
 
     def get_free(self, collection):
         myquery = { "is_paid" : False}
-        course_list = collection.find(myquery)
+        data_list = collection.find(myquery)
+        course_list = [self.get_data(i) for i in data_list]
         return course_list
 
     def get_paid(self, collection):
         myquery = { "is_paid" : False}
-        course_list = collection.find(myquery)
+        data_list = collection.find(myquery)
+        course_list = [self.get_data(i) for i in data_list]
         return course_list
 
     def delete_by_title(self, course_title, collection):
         myquery = { "title" : course_title}
+        collection.delete_one(myquery)
+        return collection
+    
+    def delete_by_id(self, id, collection):
+        myquery = { "id" : id}
         collection.delete_one(myquery)
         return collection
 
