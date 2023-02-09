@@ -66,3 +66,7 @@ class DBStorage:
         myquery = old_data
         update_val = { "$set" : new_data }
         return collection
+    
+    def count(self, collection):
+        val = collection.count_documents({})
+        return val
