@@ -1,7 +1,9 @@
-from engine.db_storage import DBStorage as freeudemydb
+from models import DBStorage as freeudemydb
 from pprint import pprint as printt
 
 db = freeudemydb()
-file = "../models/design.json"
 design = db.create_collection(db_collection = "design")
+file = "../models/design.json"
 db.dump_json_file(filename=file, collection=design)
+
+print(design .count_documents({}))

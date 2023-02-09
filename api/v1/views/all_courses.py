@@ -19,3 +19,10 @@ def get_by_title(title):
     print(course)
     return jsonify(course)
 
+@app_views.route('courses/<course_id>', methods=['DELETE'], strict_slashes=False)
+def delete_course():
+    course = storage.get_by_id(id, courses)
+    if not course:
+        abort(404)
+
+    
