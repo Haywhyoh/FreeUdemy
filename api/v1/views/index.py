@@ -7,6 +7,9 @@ storage = DBStorage()
 Courses = freeudemydb["courses"]
 Development = freeudemydb["development"]
 Design = freeudemydb["design"]
+Finance = freeudemydb["finance"]
+Software = freeudemydb["software"]
+Health = freeudemydb["health"]
 
 @app_views.route('/status', methods=['GET'], strict_slashes=False)
 def status():
@@ -16,7 +19,7 @@ def status():
 @app_views.route('/stats', methods=['GET'], strict_slashes=False)
 def number_objects():
     """ Retrieves the number of each objects by type """
-    categories = [Courses, Development, Design]
+    categories = [Courses, Development, Design, Health, Finance, Software]
     names = ["courses", "business", "design", "development", "finance & accounting",
                     "health & Fitness", "iT & software", "lifestyle", 
                     "marketing", "music", "office", "productivity", "personal development",
