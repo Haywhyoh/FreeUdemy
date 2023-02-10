@@ -54,6 +54,4 @@ def update_course(old_data, new_data):
     myquery = old_data
     update_val = { "$set" : new_data }
     return courses
-
-print(freeudemydb.courses.count_documents({}))
-print(list(get_by_title('Amazon')))
+print(freeudemydb.list_collection_names())
