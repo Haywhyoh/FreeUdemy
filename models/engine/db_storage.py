@@ -45,14 +45,16 @@ class DBStorage:
         data['_id'] = str(data['_id'])
         return data
 
-    def all(self, collection):
-        data_list = collection.find({})
+    def all(self, collection, page_num):
+        val = page_num * 10
+        data_list = collection.find({}).skip(val).limit(10)
         temp = [self.get_data(i) for i in data_list]
         return temp
 
-    def get_by_title(self, title, collection):
+    def get_by_title(self, title, collection, page_num=1):
+        val = page_num * 10
         myquery = { "title" : {"$regex": "/\b{}\b/i".format(title)}}
-        data_list = collection.find(myquery)
+        data_list = collection.find(myquery).skip(val).limit(10)
         course_list = [self.get_data(i) for i in data_list]
         return course_list
     
