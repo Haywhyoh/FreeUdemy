@@ -1,35 +1,30 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 import requests
 import json
 
 app = Flask(__name__)
-# headers = {
-#   "Accept": "application/json, text/plain, */*",
-#   "Authorization": "Basic TDgwQzhqdm1lcEtraVVrNDdDSjEzcklhMGVWMEdERDVoVXJOV0xIeTpOZEVRWUhNbVBhUVdXMm9DRE5hZ3JMTUxhWXRZZEdZcU1GU3lXNDRldUYxZUVmRmNidklnc3BqZDF1cUt1WTR1cDk1ME9YaERYZnM5Q3JNbjhwbENIeVNxVkVFSVZodGp6MlZVVXB6MFh6WXpBZkx0b3dOb2FYQ1A1SGtqQm9hUw==",
-#   "Content-Type": "application/json"
-# }
-# response = requests.get("https://www.udemy.com/api-2.0/courses/?page=1&page_size=10", headers=headers).json()
-# courses = response["results"]
+courses = requests.get("http://127.0.0.1:5000/api/v1/courses/?query=&categories=courses").json()
 
-categories = ["Business", "Design", "Development", "Finance & Accounting", "Health & Fitness", "IT & Software", "Lifestyle", 
-                "Marketing", "Music", "Office", "Productivity", "Personal Development",
-                "Photography & Video", "Teaching & Academics"]
 
-with open("/Users/macbook/Documents/Personal_Projects/Web-Dev /FreeUdemy/data.json") as file:
-    response = json.load(file)
 
-courses = response["results"]
+categories = [{"All_Categories" : "courses"}, {"Design" : "design"} , {"Development" : "development"}, {"Finance_Accounting" : "finance"}, {"Health_Fitness" : "health"}, {"IT&Software" : "software"}]
 
 
 @app.route('/courses', strict_slashes=False)
 def courses_route():
     return render_template('courses.html', courses=courses,  categories = categories)
 
+@app.route('/search/', strict_slashes=False,)
+def search_route():
+    category = request.args.get('categories')
+    query = request.args.get('queries')
+    course_list = requests.get("http://127.0.0.1:5000/api/v1/courses/?query={}&categories={}".format(query, category)).json()
+    return render_template('courses.html', courses=course_list,  categories = categories)
+ 
 @app.route('/', strict_slashes=False)
 @app.route('/home', strict_slashes=False)
 def home():
-    new_list = courses[:6]
-    return render_template( 'index.html', courses=new_list,  categories = categories)
+    return render_template( 'index.html', courses=courses,  categories = categories)
 
 @app.route('/login',  strict_slashes=False )
 def login():

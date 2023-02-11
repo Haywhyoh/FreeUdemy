@@ -8,6 +8,7 @@ courses = freeudemydb["courses"]
 dev = freeudemydb["development"]
 des = freeudemydb["design"]
 de2 = freeudemydb["devlopement"]
+hel = freeudemydb["health"]
 def create_collection(collection):
     collection = freeudemydb[collection]
     return collection

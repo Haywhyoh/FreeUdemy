@@ -11,6 +11,7 @@ Finance = freeudemydb["finance"]
 Software = freeudemydb["software"]
 Health = freeudemydb["health"]
 
+@app_views.route('/', methods=['GET'], strict_slashes=False)
 @app_views.route('/status', methods=['GET'], strict_slashes=False)
 def status():
     """ Status of API """
