@@ -19,7 +19,6 @@ class DBStorage:
     def dump_json_file(self, filename=None, collection=None):
         with open(filename) as file:
             file_data = json.load(file)
-            file_data = file_data["results"]
             for i in file_data:
                 i["created_at"] = now.strftime(time)
                 i["updated_at"] = now.strftime(time)
