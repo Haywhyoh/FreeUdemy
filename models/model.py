@@ -16,7 +16,6 @@ def create_collection(collection):
 def dump_json_file(filename):
     with open(filename) as file:
         file_data = json.load(file)
-        file_data = file_data["results"]
     if isinstance(file_data, list):
         courses.insert_many(file_data)
     else:
@@ -55,4 +54,9 @@ def update_course(old_data, new_data):
     myquery = old_data
     update_val = { "$set" : new_data }
     return courses
+
+def clear_collection(collection):
+    collection.delete_many({})
+
 print(freeudemydb.list_collection_names())
+print(freeudemydb.development.count_documents({}))
