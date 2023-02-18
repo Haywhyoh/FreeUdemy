@@ -6,3 +6,6 @@ getafreecourse.com
 
 export FLASK_APP=app
 flask run
+
+To run the API: 
+python3 -m api.v1.app
