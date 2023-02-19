@@ -9,6 +9,7 @@ dev = freeudemydb["development"]
 des = freeudemydb["design"]
 de2 = freeudemydb["devlopement"]
 hel = freeudemydb["health"]
+user = freeudemydb["users"]
 def create_collection(collection):
     collection = freeudemydb[collection]
     return collection
@@ -58,5 +59,8 @@ def update_course(old_data, new_data):
 def clear_collection(collection):
     collection.delete_many({})
 
-print(freeudemydb.list_collection_names())
-print(freeudemydb.development.count_documents({}))
+if __name__ == "__main__":
+    query = {"username": 'test'}
+    print(freeudemydb.user.find_one(query))
+    print(user.count_documents({}))
+    print(list((user.find({}))))
