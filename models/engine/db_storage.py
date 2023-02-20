@@ -4,8 +4,8 @@ import json
 import pprint
 from datetime import datetime
 
-myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-freeudemydb = myclient["freeudemy_database"]
+myclient = pymongo.MongoClient("mongodb+srv://haywhyoh:Mydreams@freeudemy.epriojq.mongodb.net/?retryWrites=true&w=majority")
+freeudemydb = myclient["freeudemy"]
 time = "%Y-%m-%dT%H:%M:%S.%f"
 now = datetime.now()
 class DBStorage:
