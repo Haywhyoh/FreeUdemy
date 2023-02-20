@@ -1,7 +1,7 @@
 import pymongo
-from models.engine.db_storage import DBStorage
-myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-freeudemydb = myclient["freeudemy_database"]
+from models import DBStorage
+myclient = pymongo.MongoClient("mongodb+srv://haywhyoh:Mydreams@freeudemy.epriojq.mongodb.net/?retryWrites=true&w=majority")
+freeudemydb = myclient["freeudemy"]
 db = DBStorage()
 
 def load_all_courses():
