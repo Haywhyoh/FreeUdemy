@@ -1,5 +1,5 @@
 import pymongo
-from engine.db_storage import DBStorage
+from models.engine.db_storage import DBStorage
 myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 freeudemydb = myclient["freeudemy_database"]
 db = DBStorage()
