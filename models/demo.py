@@ -7,9 +7,10 @@ freeudemydb = myclient["freeudemy_database"]
 courses = freeudemydb["courses"]
 dev = freeudemydb["development"]
 des = freeudemydb["design"]
-de2 = freeudemydb["devlopement"]
+soft = freeudemydb["software"]
 hel = freeudemydb["health"]
 user = freeudemydb["users"]
+finance = freeudemydb["finance"]
 db = DBStorage()
 def create_collection(collection):
     collection = freeudemydb[collection]
@@ -61,11 +62,11 @@ def clear_collection(collection):
     collection.delete_many({})
 
 if __name__ == "__main__":
-    # query = {"username": 'test_user'}
-    # print(freeudemydb.user.find_one(query))
-    # # print(user.count_documents({}))
+    query = {"title": 'test'}
+    print(freeudemydb.courses.find_one(query))
+    print(courses.count_documents({}))
     # print(list((user.find({}))))
-    # user.delete_many({})
-    c = db.get_user(user, "test_user")
-    print(c)
-    print(type(c))
+    #courses.delete_many(query)
+    # c = db.get_user(user, "test_user")
+    # print(c)
+    # print(type(c))
