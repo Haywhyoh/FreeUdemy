@@ -11,8 +11,8 @@ app = Flask(__name__)
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
-courses = requests.get("http://127.0.0.1:5000/api/v1/courses/?query=&categories=courses").json()
 
+courses = requests.get("http://127.0.0.1:5000/api/v1/courses/?query=&categories=courses").json()
 categories = [{"All_Categories" : "courses"}, {"Design" : "design"} , {"Development" : "development"}, {"Finance_Accounting" : "finance"}, {"Health_Fitness" : "health"}, {"IT&Software" : "software"}]
 
 
@@ -37,18 +37,19 @@ def login():
     if request.method == 'POST':
         username = request.form.get("username")
         password = request.form.get("password")
-        user = db.get(users, username)
+        user = db.get_user(users, username)
         if user:
-            if check_password_hash(user.password, password):
+            if check_password_hash(user['password'], password):
+                session["logged_in"] = True
+                session["username"] = username
                 flash("Logged in!", category='success')
-                login_user(user, remember=True)
                 return redirect(url_for('home'))
             else:
                 flash('Password is incorrect.', category='error')
         else:
             flash('username does not exist.', category='error')
 
-    return render_template("login.html", user=current_user)
+    return render_template("add_course.html", user=current_user)
 
 @app.route('/signup',  methods=['GET', 'POST'], strict_slashes=False )
 def signup():
@@ -80,9 +81,9 @@ def signup():
             session['logged_in'] = True
             flash('User created!')
             session['new_user'] = new_user
-            return redirect(url_for('home'))
+            return redirect(url_for('/courses_route'))
 
-    return render_template("signup.html", user=current_user)
+    return render_template("signup.html")
 
 @app.route("/logout")
 @login_required
