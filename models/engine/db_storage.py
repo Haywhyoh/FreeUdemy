@@ -50,6 +50,12 @@ class DBStorage:
         temp = [self.get_data(i) for i in data_list]
         return temp
 
+    def get_user(self, collection, username):
+        myquery = { "username": username}
+        data = collection.find_one(myquery)
+        return data
+
+
     def get_by_title(self, title, collection, page_num=1):
         val = page_num * 10
         myquery = { "title" : {"$regex": "/\b{}\b/i".format(title)}}
@@ -60,8 +66,7 @@ class DBStorage:
     def get_by_id(self, id, collection):
         myquery = { "id" : id}
         data_list = collection.find(myquery)
-        course_list = [self.get_data(i) for i in data_list]
-        return course_list
+        return data_list
 
     def get_free(self, collection):
         myquery = { "is_paid" : False}
@@ -85,12 +90,25 @@ class DBStorage:
         collection.delete_one(myquery)
         return collection
 
+    def add_user(self, collection, username = None, email = None, password = None):
+        if not email:
+            return 
+        if not username:
+            return
+        if not password:
+            return
+        query = {"username" : username, "email": email , "password": password}
+        user = collection.insert_one(query)
+        return user
+    
     def update_course(self, old_data, new_data, collection):
         new_data["updated_at"] = now.strftime(time)
         myquery = old_data
         update_val = { "$set" : new_data }
+        collection.update_one(myquery, update_val)
         return collection
     
     def count(self, collection):
         val = collection.count_documents({})
         return val
+    
