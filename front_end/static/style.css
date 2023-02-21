@@ -1,131 +1,202 @@
-@import url('https://fonts.googleapis.com/css2?family=Solway:wght@300;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Solway:wght@300;400&display=swap");
 
-:root{
-    --text_black: #1A1919;
-    --text_grey: rgba(26, 25, 25, 0.6);
-    --text_orange:#FF5202;
-    --body_background:rgb(255, 255, 255);
-    --background_orange:rgba(255, 82, 2, 0.1);
+:root {
+  --text_black: #1a1919;
+  --text_grey: rgba(26, 25, 25, 0.6);
+  --text_orange: #ff5202;
+  --body_background: rgb(255, 255, 255);
+  --background_orange: rgba(255, 82, 2, 0.1);
 
-    --biggest_font: 3.5rem;
-    --big_font: 3rem;
-    --small_text_size: 16px;
-    --big_text_size: 18px;
+  --biggest_font: 3.5rem;
+  --big_font: 3rem;
+  --small_text_size: 16px;
+  --big_text_size: 18px;
 }
 
-body{
-    font-family: Solway;
-    box-sizing: border-box;
-    padding: 0 .5rem;
-    background-color: var(--body_background);
-    
+body {
+  font-family: Solway;
+  box-sizing: border-box;
+  /* padding: 0 0.5rem; */
+  background-color: var(--body_background);
 }
 
-header{
-    background-color: white;
+header {
+  background-color: white;
 }
 
-h1{
-    font-size: var(--big_font);
+.navbar {
+  background-color: transparent !important;
 }
 
-p{
-    font-size: var(--small_text_size);
-    color: var(--text_grey);
-    font-weight: 300;
+h1 {
+  font-size: var(--big_font);
 }
 
-button{
-    background-color: var(--text_orange);
-    color: white;
-    font-size: var(--small_text_size);
-    padding: 8px 16px;
-    border-radius: 8px;
-
+p {
+  font-size: var(--small_text_size);
+  color: var(--text_grey);
+  font-weight: 300;
 }
 
-li{
-    list-style-type: none;
+button {
+  background-color: var(--text_orange);
+  color: white;
+  font-size: var(--small_text_size);
+  padding: 8px 16px;
+  border-radius: 8px;
 }
 
-p{
-    font-family: 'Solway';
-    font-style: normal;
-    font-weight: 300;
-    font-size: 16px;
-/* or 25px */
-letter-spacing: -0.3px;
-
-color: rgba(26, 25, 25, 0.6);
+li {
+  list-style-type: none;
 }
 
-a{
-    text-decoration: none;
-    color: var(--text_black);
+p {
+  font-family: "Solway";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  /* or 25px */
+  letter-spacing: -0.3px;
+
+  color: rgba(26, 25, 25, 0.6);
 }
 
-.nav-link:hover{
-    color: var(--text_orange);
+a {
+  text-decoration: none;
+  color: var(--text_black);
+}
+
+.nav-link:hover {
+  color: var(--text_orange);
 }
 .email {
-    width: 20rem;
+  width: 20rem;
 }
 
 .orange_text {
-    color: var(--text_orange);
+  color: var(--text_orange);
 }
 
-.mt-6{
-    margin-top: 6rem;
+.mt-6 {
+  margin-top: 6rem;
 }
 
+/* ====================Onboarding screens ================= */
+
+.form_page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form_page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.form_page-image {
+  width: 100%;
+  height: 100%;
+  background-color: var(--text_orange);
+}
+
+.form_page-form {
+  width: 100%;
+  height: 100%;
+  background-color: var(--background_orange);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form_page-form form {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 10px;
+  gap: 10px;
+  border-radius: 5px;
+}
+
+.form_page-form form h3 {
+  text-align: center;
+  font-weight: 700;
+}
+
+.form_page-form form .form-element {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 5px;
+}
+
+.form_page-form form .form-element .form-input {
+  height: 40px;
+  padding: 10px;
+}
+
+.form_page-form form .form-element button.form-input {
+  background-color: var(--text_orange);
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+}
+
+/* ========== Onboarding media query ================= */
+
+@media (max-width: 912px) {
+  .form_page-image {
+    display: none;
+  }
+}
 
 @media only screen and (min-width: 412px) {
-    .email {
-        width: 20 rem;
-    }
+  .email {
+    width: 20 rem;
+  }
 }
 
 @media only screen and (min-width: 912px) {
-    .mt-6{
-        margin-top: 7rem;
-    }
+  .mt-6 {
+    margin-top: 7rem;
+  }
 
-    body{
-        margin: 0 3rem;
-    }
+  body {
+    /* margin: 0 3rem; */
+  }
 
-    .email {
-        width: 22 rem;
-    }
+  .email {
+    width: 22 rem;
+  }
 
-    .navbar-collapse{
-        margin-left: 10rem;
-    }
+  .navbar-collapse {
+    margin-left: 10rem;
+  }
 
-    .navbar{
-        margin: 0;
-    }
+  .navbar {
+    /* margin: 0; */
+  }
 }
 
 @media only screen and (min-width: 768px) {
-    .mt-6{
-        margin-top: 3rem;
-    }
+  .mt-6 {
+    margin-top: 3rem;
+  }
 }
 
 @media only screen and (min-width: 1100px) {
-    .mt-6{
-        margin-top: 8rem;
-    }
+  .mt-6 {
+    margin-top: 8rem;
+  }
 }
 
 @media only screen and (min-width: 1400px) {
-   
 }
 
 @media only screen and (min-width: 2000px) {
-   
 }
-
-
