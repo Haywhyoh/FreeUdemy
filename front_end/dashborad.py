@@ -42,7 +42,6 @@ def login():
             if check_password_hash(user['password'], password):
                 session["logged_in"] = True
                 session["username"] = username
-                flash("Logged in!", category='success')
                 return redirect(url_for('home'))
             else:
                 flash('Password is incorrect.', category='error')

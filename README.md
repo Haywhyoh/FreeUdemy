@@ -10,13 +10,9 @@ Install all requirements
 pip install -r requirements.txt
 
 
-Step 2:
-Run model.py
-python3 -m models.model
 
-
-Step 3: To run the API from the root
+Step 2: To run the API from the root
 python3 -m api.v1.app
 
-Step 4: To run the dashboard from root
+Step 3: To run the dashboard from root
 python3 -m front_end.dashborad

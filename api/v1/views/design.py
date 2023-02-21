@@ -24,3 +24,4 @@ def delete_des_course():
     course = storage.get_by_id(id, courses)
     if not course:
         abort(404)
+

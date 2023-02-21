@@ -4,8 +4,8 @@ import json
 import pprint
 from datetime import datetime
 
-myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-freeudemydb = myclient["freeudemy_database"]
+myclient = pymongo.MongoClient("mongodb+srv://haywhyoh:Mydreams@freeudemy.epriojq.mongodb.net/?retryWrites=true&w=majority")
+freeudemydb = myclient["freeudemy"]
 time = "%Y-%m-%dT%H:%M:%S.%f"
 now = datetime.now()
 class DBStorage:
@@ -56,13 +56,18 @@ class DBStorage:
         return data
 
 
-    def get_by_title(self, title, collection, page_num=1):
+    def get_by_search(self, title, collection, page_num=1):
         val = page_num * 10
-        myquery = { "title" : {"$regex": "/\b{}\b/i".format(title)}}
+        myquery = { "title" : title }
         data_list = collection.find(myquery).skip(val).limit(10)
         course_list = [self.get_data(i) for i in data_list]
         return course_list
     
+    def get_by_title(self, title, collection):
+        myquery = { "title" : title}
+        data_list = collection.find(myquery)
+        return data_list
+
     def get_by_id(self, id, collection):
         myquery = { "id" : id}
         data_list = collection.find(myquery)
@@ -101,6 +106,26 @@ class DBStorage:
         user = collection.insert_one(query)
         return user
     
+    def add_course(self, collection, title=None, price = 'Free', images=None, url=None, reviews=None, instructor=None, category="courses"):
+        if not title: 
+            return "Empty title"
+        if not url: 
+            return "Url is missen"
+        if not instructor: 
+            return "Instructor is missen"
+        my_query = {
+            "title" : title,
+            "price" : price,
+            "images" : images,
+            "url" : url,
+            "reviews" : reviews,
+            "instructor" : instructor,
+            "category": category
+        }
+        courses = freeudemydb["courses"]
+        course = collection.insert_one(my_query)
+        return self.get_by_title("test", courses)
+
     def update_course(self, old_data, new_data, collection):
         new_data["updated_at"] = now.strftime(time)
         myquery = old_data
