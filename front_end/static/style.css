@@ -107,7 +107,7 @@ a {
 .form_page-form {
   width: 100%;
   height: 100%;
-  background-color: var(--background_orange);
+  /* background-color: var(--background_orange); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -126,6 +126,7 @@ a {
 .form_page-form form h3 {
   text-align: center;
   font-weight: 700;
+  color: var(--text_orange);
 }
 
 .form_page-form form .form-element {
