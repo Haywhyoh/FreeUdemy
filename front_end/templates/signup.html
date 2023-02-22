@@ -8,48 +8,55 @@
           <label for="email">Email Address</label>
           <input
             type="email"
-            id="email"
+            id="signup-email"
             name="email"
             class="form-input"
             autocomplete="off"
             placeholder="Enter Email" />
+          <span class="email-error"></span>
         </div>
         <div class="form-element">
           <label for="username">Username</label>
           <input
             type="text"
-            id="email"
-            name="email"
+            id="signup-username"
+            name="username"
             class="form-input"
             autocomplete="off"
             placeholder="Enter Email" />
+          <span class="username-error"></span>
         </div>
         <div class="form-element">
           <label for="password">Password</label>
           <input
             type="password"
-            id="password"
+            id="signup-password"
             name="password"
             autocomplete="off"
             class="form-input"
             placeholder="Enter Password" />
+          <span class="password-error"></span>
         </div>
         <div class="form-element">
           <label for="password">Repeat password</label>
           <input
             type="password"
-            id="password"
+            id="signup-repeat-password"
             name="password"
             autocomplete="off"
             class="form-input"
             placeholder="Enter Password" />
+          <span class="rpassword-error"></span>
         </div>
         <div class="form-element">
-          <button class="form-input" type="submit">Sign up</button>
+          <button id="signup-btn" class="form-input" type="submit">
+            Sign up
+          </button>
         </div>
       </form>
     </div>
     <div class="form_page-image"></div>
   </div>
 </div>
+<script src="{{url_for('static', filename='signup.js')}}"></script>
 {% endblock %}
