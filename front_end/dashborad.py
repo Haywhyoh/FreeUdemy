@@ -48,7 +48,7 @@ def login():
         else:
             flash('username does not exist.', category='error')
 
-    return render_template("add_course.html", user=current_user)
+    return render_template("login.html", user=current_user)
 
 @app.route('/signup',  methods=['GET', 'POST'], strict_slashes=False )
 def signup():
