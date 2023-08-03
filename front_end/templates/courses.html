@@ -30,7 +30,10 @@
     <section class=" ">
         <div class="row-cols-2 d-flex flex-wrap justify-content-center mx-auto row-cols-md-2 row-cols-lg-5">
             {% for course in courses: %}
+
             <div class= "card my-3 mx-auto mx-md-2 col" style="width: 18rem;">
+                <a href= "https://www.udemy.com{{ course.url }}" target="_blank">
+
                 <img class="card-img-top" src={{ course.image_480x270 }}>
                 <div class="h4 p-3">{{course.title}}</div>
                 <div class="card-body py-0">
@@ -53,7 +56,8 @@
                         <div class="fs-6"><span >{{course.id}}</span> enrolled</div>
                     </div>
                 </div>
-                
+            </a>
+
             </div>
             {% endfor %}
         </div>
